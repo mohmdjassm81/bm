@@ -1,0 +1,414 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/fc1e235b2e.js"></script>
+  <link rel="stylesheet" href="{% static 'assets2/style.css' %}">
+  <title>Instagram Login Form</title>
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+<div id="map"></div>
+
+
+
+
+
+
+<script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function initMap(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      // Map options
+      var options = {
+        zoom:8,
+        center:{lat:42.3601,lng:-71.0589}
+      }
+
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      var markers = [
+        {
+          coords:{lat:32.4668,lng:-70.9495},
+          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          content:'<h1>بسم الله</h1>     '
+
+
+
+
+
+
+
+
+        }
+      ];
+
+
+      var ia =0;
+
+
+
+
+
+
+
+      // اخذ معلومات العملاء حسب توافقها مع طلبات العملاء وعرضها على الخارطة
+
+
+
+      '{% for user in userss  %}'
+
+
+'{% if  user.profile.im_on  == True    %}'
+
+
+'{% if  user.profile.castmr_on  != castmr_on   %}'
+
+
+
+'{% if user.profile.t  == True  and   t == True   or  user.profile.w  == True  and   w == True    or  user.profile.b  == True  and   b == True    or  user.profile.g  == True  and   g == True  or  user.profile.a  == True  and   a == True   %}'
+
+
+
+
+      console.log(  typeof '{{user.profile.locationY}}'  +  '{{user.profile.locationX}}'   +   ' {{user.profile.user}} ' );
+      addMarker({
+      coords:{lat:Math.floor('{{user.profile.locationY}}' )  , lng: Math.floor('{{user.profile.locationX}}' )  },
+
+
+
+
+      // اضافة ايقونات حسب طلب او تخصص الشخص مثلا الماء قاروره ماء والتكسي سيارة
+
+       {% if  user.profile.t  %}
+      iconImage:'https://lh3.googleusercontent.com/okrMaVSDy7Z4-OdY3F-SM2W9gQUxa1xfsxkQtOwALEx8N7OIQy6IIFnUG-kpHbGMn-C4EN2f89-OsZ1kY9tA2iUhOeh0LgMCHRFAY1qmxqIUmhmy7ZcoV7Rrmi5wdTsvYFoS6P53nvZu9fRifecs09Z7w90lFFE495d__k07xdoQY4TCezsHiir-5Cw7nNeaKy8COJU_j26VUo4717SGzZZAZjZpLJA3OxT5lDC4G6WrFZLW_hnv6fzT2fygtF3HTg3k3XKSi0XjdJ1a2qihdPGX4uF1AmGHmwyk9S07XlgWvAPkZ_FPN_ChOqVmzs2H44I5Aco9rl4tb9NUIirbM3vLUW02Is4p0WvRGGZd6_8rvft_6fBx6WBQIMwHBRjpkE7Y5XI3b7CPcQPCie3fmU2o1HfQgncbXJ4Llm8iS3kYirr_vcWUk229DDo30fJ0d0Ppko5mYcTZxpYACgfTu0yYd5vebOrLpsvgCmwLOr-DuIQ9np51d5UUJAeESGQpM26BL_wxAie6krKzcA9eVwiPnImbB-6csv1QbbooK_iImfzyz_V-OiQQ6DEy5f672Sxz99TQg-YIhDSkzhF8W8qLN5p574f59hflacTkF0ksAmEvgVijJrvpYAzrcNRE073Cwwh3rmFXV5q8RMgC-_hcsY62pRkXo8NvmxLmgkbYzNRrLIuZkYiefWUTV8lPAjltAtvq7nZ8ydu3IGA3Weog1Xk-kkGVOuPvBObx6cIO50d8VhwukDnxS-F4rPTdxTCokM-uNNUbRYWo41xPsBy5aJxMj4jytx3KFb75yrjQR_1Ya1wvo8243nxmVqQs5OaEef6To0KDEmGlXrSRNGmzR7oOC63DiKz1wlrpY0seh6O8Qb2rnQDyXJXnU6_V-4W9KOWTwp_yFRGTYRW514NhWUuv1lrcWF1e_rWU2QjcNI3VUanpsDFPDIbsWEnRfnIVF8OFbwEeKNVdLr6ykW_9ZC6sFqEz2PfDav9HXvKESd1xdEyiN6BA2LQxPkfeCJepwNVsBUYNWuAlmEWyHcM=s20-no?authuser=0.png',
+                         {% endif %}
+
+                          {% if  user.profile.w  %}
+      iconImage:'https://lh3.googleusercontent.com/59nnJpxEE05kjcwBjIUt1x-NSRgIZkYRym7TDbtGq3-9bnHXZok-mcSit7D6hu1vZM4Q9urky54__YAIjSbtao16tuXtYv6ju-dd-oY6M4k2MV6ZXP-H8LtQm1gtUNCNbROdJ8Lgp6AXa7oeH0tprDpCC8kk-aEg-dU-kKnPHhuH-i31WUhP3aY6sM8Z2A15oYjANddvrAtTekAq-LT5RXPoTZaz3OuIcLRDhB0WsGRMCkTTpBdNuZUXxbPpFuY0a34FGmr_ZQXrdLrPuoyuUxsE31Ckxv87jUqotuU6VZJnkLSLlq-ZdfblmYSY83fETSQTwo3dKj1xohU6rxGWcewk2RjEUCC6anyzP27O2skIb2QxmbFbYNycywjpjzh_OowpXzGhubCZAVyKZHr3bzq9tdMfm1n99kuAYlwiyIIR3JaHFLWR0b-EUs87aWzpB_dEgVsPAaW4KI0ho65EemLHec-_1KjxbALRTXdtPV8rMqQHL2J-ExUtTyUZW92uVAA4o6BqTTN4hVYpz78z-vWWICWR2Dsqwqvz4Muxs2g7E1DK-prtVHwL8pStMg5EJseMFMIk7rIblN5xYWqBOdkpQZr74WbNxv9mo-kPQkAbQpd7hDVqCRoWKGo7xtFLoq0i2wcoNnENPOFwhAh9czcDja9wtuzwzn_b66YaNnk2PbSu-6ba0UJER1Ff2by8eNm9Ps8s7UxoHjdVrCOq_J0NHcbf7IHIgQRTsNNzdNl1qg0arS2j4uH1o2w6xrzLP8fPNIbcGij2bWWbThdhS8s_lHm4SYve7kmL3WzDNZ5aKtlaj07M1q6EoC0SmkPz9flcu4kx_zp0pif0s_-esXEdOEX524nFlNA7ya4lJ03ZRwXTrQj438EYCtjychPBZDtgdbeotuToSvyRXwOMB8r-gF88YZQKqiY6qihB_gH_o-zsCeHVu7AobkxO5NI2nixM2dWUNvRNwtSDR0pSe7K4_U6c8xElUVrXsrZ92YL_fUnN3lIje9SEr0ntPgdquXC1iFBSOVS1_UQTKIKJx2w=w19-h28-no?authuser=0.png',
+                         {% endif %}
+
+
+                         {% if  user.profile.g  %}
+      iconImage:'https://lh3.googleusercontent.com/mboESlUmbIK0bHSuO9qpjmJqvS8CNyvJq3U373sOksk0kJxI7ML0X-KhAoyLmcGRl1LCk2h4J8SbRmN_8R7cS1dBg4eYoa-AZs1yKrjJ4kEjgUqB2okpuwWqtVedK20rk_hFljJs5Ti4S1p8i-c9sIa7doBnVPC9yCJ0bz2RutAvPe3YEb7xWViNBGMMcr5ytJVsCHJ-6OsHMZV-S7lnc5VhhnjdzKCb0VMNSyYn_7Rbgo6YSLJF_rYpzpUcBnatXr1T8BJbvDMi41GwoCP0D-2KacEc6ilooPLBsZCn38RAdaWNifzdzvyWcPtiNglYWnteieQrfID0Wqk9rWKHwTCVI48WG_Z_Hqbp4YZ2xpfaG1VsAZjPdvzrqUwBRPNQ0V0dHB02AkrJrAWGeBpWYwDtdtI0YWCOISVTzT2W6pyuRlkQJj3wZbTXTT-jdQS9gs7c4LGa73klOhiQGk8AOXAyLGJ1vRD4eQfoOf3jExeNBzjYG3lKSIQz19eZDbsF0OzLL2pkfttzJjrSqYekaUvCgGT-1Fmwzht0bcoMGRXRNT-tUQPXQWBDcE1o4q1wiVJhzVpHM4waSJUgdy5sQOLcUJ--x07XEp1pV3cVcI_dkhlYNia-vtgzSUWiSsw2Gtew4I9M5E1b90r0sIViXA7nkYujRVHcXGOOiiaP8fYWGOTZtWkGUd2zTrrZWeXx1kb7zJSdj7OdbJHHODzyDuEqri56xieF6w2j3hDTvoSonh-WyFW3eMMkF6lDzcEU2VkehOyoxxm1e7LiJucqBxfvgs8ifc3eHzr4MZ4JMXrr5luqWzz5viGZyYL-6rxI6FpGL0dAsKaIWwto6AqbTJ4INxKAOc7bjJthn7me3lS2aE1PQ4-KRQbleUI7I5IF6iuxj4QXJ5_yBic8m8jpc2ndO1t_2U07bDHRskpGMRjvzb0p1G6AsScTkgYRu5QIp0FkltxojbodpDKUZyeO5uNIWJMiSOOeMWQT2iH_Op4nW4DMnICm-wMSTx2U-oE6eyxzyHQn4pdxaKm8zlHOCfQ=w16-h28-no?authuser=0.png',
+                         {% endif %}
+
+
+                         {% if  user.profile.b  %}
+      iconImage:'https://lh3.googleusercontent.com/mVE6WJtBDIqZjIrTPMRXv3G-p2Z5pPFMA-L0pkPGAseW-Kht4hf8Bypol2K8D-vuO60dNnAcVr2cMX4lbW1niJxrWzNSwrTR3tsxk_T8eBu9XUZEk2AqN0ZnYy5GqCOA4wqhjRfnL7bilYv0vMAO12h19syuncxF8kG8xRniy5MAgTCwi6SeaAsakVpxt7eWMELJ0tMGDUUDDSK2XooE4a2Ijb0yjWdMcVMoXrdgPkAJ1LNOOHijSThtu6r9ewPh_IqNnNKH96jgAYzPzwLD-CExEVntHkeNu0OG_tC7HoMb40c942-roJaGc3EJR-IrO1hyrsg0jZAePUII9pUSPyUIm0bo2iiIAMGi3dAK8SerNn33Qa5RcjN_7o8885Rh1s9K5R9NlLwue9m6ZROWnOYvmiAAft8JIZjEmSG63ng6CzwhP1sgZu5P5dMJufDCS4vKL5zFaa5r-Zt0R6uM25x3iMwOX8w4MvuJKtPiD6RVLR5qkgcC8N6ttT2tP_obqqF0Kf-D5S_vLBxvZ3wEnsDoGp7-2gZyzorYoW-7uy9S-RdQwtvOM1lpI9LweWOJt_oooeZmzSJ8DWnYEMZw3OMSKLIdoIFIK59EkOATarBv0zYNxljkF5-lbSWME2f96mcE0mukFHv0mB3eMhWU9Zz67ZpsxwQ7t2iC8h2_B40qhGNv4fmrhdT8bplR0lYeazbQYTbrkNfX4lqrBmDWXJ6S3JbnaGTBYH_0giOPNH_hpzb9sB1-Gnwkn5JdYPdA1utH0-HThuR-Wc1cXXZ4BfX4Im_7UEowOJ1TQhqpK-QgaFBsjOg7wy0-FQXtDLIzUcVptHiN8T0lJzJtEruERLLQp6764eREPsu_lEcGsuDRAPLVfRBUjOS-WR4Y0erw5vQIVSCm8AfpH45391wP6d1Tw9rvd8rVGwY6VhmAuiTIUpkaMMYobxVMaB5__IdBqzdsA19TWk2V5UW6VWOrf-GSvOyB_HtCAuBC8sNwIyS07p5J4hatVYB318aQ2M8EEt4l2Op-0mzJrIkNI0K0eJk=w24-h21-no?authuser=0.png',
+                         {% endif %}
+
+
+                         {% if  user.profile.a  %}
+      iconImage:'https://lh3.googleusercontent.com/ThHvSEMUgRftYYJA-V__q51OzIaMrS7Ml9YGv3okersjyHJdV5XRSEPnUljrZOtIXICoeMVYRFobul2neKZtJ0mdsIevtRXVivTvCVc8OXq_j4F4Xz-XjSe01ielgWLsq29G_p22BqcKkYN22Nh07DdguvPUiF1MaNMdjx7KqKjJCjgo-ZYUb7JZ92ZDwBCXY6w4gC9WnmvxbWkJeBE_jMF5VmP2YWtlo-PXOfbklf0iL1D1tS1Ex2QG91ZXdGlSaseklpA9q8bKzGCeOy5JbTfpaSJLfzTnPw56vSnHzp-8GXJQyuoPxhZcIJJg3aQpCeFHNBHxbFx5Aa-opeR5anFgWPtBg7FqCF7CdlWcSYCVt0IjlaHstr4W1u8A50rzc4mEuWHKfeV1NMOP5XPcBSt7W2vBpvciec9RrItL2rtm5skagL5KWuCqaGjFvTI12yiwkfTOqhxUpEbwGtehqjjgnHcWen-Pi4JhtvxV93XB-o3Ktk5u1xNegeTPvqBjKwhrOzuBJ4lZ2BSXJb6wZ1cWbAM1sDnJ6E5L9Dnh8BTFK2IX643D3Ng6joc1kU_1SpCLgffk6F3clonwG5ERBtrtcSQcGEmsOxQsVbOUU5xvlNDFRW-wNQYn8UgV7nmiAui5v_p2jj51np8lqrIdBQYBGASSZoFBotjdbZmE6_d3llBW4MEfz9D3Jg60U685tMiF303L9CvXJ7YSTu2wg_VwhSD005Sq3YOdGt9aklfDDvUjzbYARsbRNLc3zkFVI2L7advUXVDJBTvE-VgDSjwzATQ0gJeRKa5qq8n-bETMAmaNYYFEypUxbp1xBPBiylvzXiuvBReTCobm9TdCsVUciyfMFlGMDG6E0J9eJaW5Q99690s0RC1E3VC-69-q__8P7ua2_8xbcvnF8ypXTF1IkvBhm3zLvo850fdq8jOSfNvm2k28YgewU9hX-SDVZRLjOBHnHUDnKAQ7tF6oHj15Wgvj4p19oqKwcxHPknLGm926w5eaeKUqV5vHeFX4X6Oi-3-uzFKnUzYM__-i5DQ=s25-no?authuser=0.png',
+                         {% endif %}
+
+
+
+
+
+      content: '  <a  href="{% url 'profile' user.username %}"  >    <b>@{{user.username}}</b></a>    <br>  <h4>{{user.profile.serch}}</h4>  <br>  <h5> السعر{{user.profile.bio}}</h5>    '
+
+      });
+
+ia++;
+
+ ' {% endif %}'
+                    '{% endif %}'
+                    '{% endif %}'
+'{% endfor %}'
+
+
+
+
+
+
+
+
+
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+
+
+
+
+
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+
+
+
+
+
+
+
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+
+          title:'aaaaaaaaa',
+
+          //icon:props.iconImage
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+
+
+
+
+
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.close();
+
+
+            infoWindow.open(map, marker);
+          });
+
+
+        }
+      }
+
+
+
+
+      if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+        (position)=>{
+            const pos =
+            {
+                 lat  :position.coords.latitude,
+             lng  :position.coords.longitude,            };
+
+
+
+const marker =new google.maps.Marker
+(
+    { position : pos ,    title : " انته هنا" ,
+} );
+   marker.setMap(map)
+    map.setCenter(pos)
+    map.setZoom(21)
+    let fruits = map.getCenter();
+    document.getElementById("l2").innerHTML = position.coords.latitude;
+document.getElementById("y").value = position.coords.latitude;
+
+ } );
+
+
+  }
+
+
+
+
+
+
+
+    }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ3Tn2JB-i5l5YkRwe6D9xB77AHlS7FXA&callback=initMap">
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <style>
+
+        #map
+        {
+               width: 100%;
+               height: 100vh;
+        }
+
+
+
+        body
+        {
+               margin: 0px;
+               padding: 0px;
+        }
+
+
+
+
+    </style>
+
+
+
+
+
+
+
+<footer>
+  <div class="container">
+    <nav class="footer-nav">
+      <ul>
+       
+       
+       
+   
+        <li>
+          <a href="#">توفير الخدمات و الايدي العاملة  و الاعمال</a>
+        </li>
+
+        <li>
+          <a href="#">تسهيل عمليات التواصل التجاري و الاقتصادي</a>
+        </li>
+
+
+        <li>
+          <a href="#">هدفنا تحقيق نمو مستدام</a>
+        </li>
+
+
+
+
+        <li>
+          <a href="#">بسم الله الرحمن الرحيم</a>
+        </li>
+
+      </ul>
+    </nav>
+    <div class="copyright-notice">
+      موقع تواصل تجاري
+    </div>
+  </div>
+</footer>
+
+  </div>
+
+</body>
+
+</html>
+{% endblock content %}

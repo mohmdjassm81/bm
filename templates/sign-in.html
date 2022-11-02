@@ -1,0 +1,49 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/fc1e235b2e.js"></script>
+  <link rel="stylesheet" href="{% static 'assets2/style.css' %}">
+  <title>طلباتك </title>
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div class="container">
+      <div class="phone-app-demo"></div>
+      <div class="form-data">
+        <form action="" method="POST">{% csrf_token %}
+          <div class="logo">
+
+                      <!-- صوره الوكو -->
+          <!--  <img src="{% static 'assets2/images/logo.png' %}" alt="logo"> -->
+
+
+          </div>
+          <!-- <input type="text" placeholder="Phone number, username, or email"> -->
+          <!-- <input type="password" placeholder="Password"> -->
+          {{form}}
+          <button class="form-btn" type="submit">تسجيل دخول</button>
+          <!-- <a href="index.html" class="form-btn" type="submit">Log in</a> -->
+          <span class="has-separator">Or</span>
+
+        </form>
+        <div class="sign-up">
+          هل تريد انشاء حساب جديد? <a href="{% url 'sign-up' %}">تسجيل حساب جديد</a>
+        </div>
+        <div class="get-the-app">
+          <div class="badges">
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

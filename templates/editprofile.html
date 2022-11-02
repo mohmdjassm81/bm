@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/fc1e235b2e.js"></script>
+  <link rel="stylesheet" href="{% static 'assets2/style.css' %}">
+  <title>Instagram Login Form</title>
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div class="container">
+      <div class="phone-app-ddemo"></div>
+      <div class="form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+          <h1>تغيير صورتك الشصية</h1><hr>
+
+          {{form.image}} <br>
+
+          <h1>تعديل اسمك الاول</h1><hr>
+
+		  {{form.first_name}} <br>
+
+
+          <h1>تعديل اسمك الثاني</h1><hr>
+		  {{form.last_name}} <br>
+                    <h1>عنوانك</h1><hr>
+
+		  {{form.location}}
+
+
+
+
+<div  hidden>
+<!-- اخفيتها لان اذا احذفها مايشتغل الفورم -->
+
+    {{form.bio}}
+          		  {{form.locationY}}
+          		  {{form.locationX}}
+
+		  {{form.serch}}
+ {{form.t}} <br>
+		  {{form.w}} <br> <hr>
+		  {{form.g}} <br>
+		  {{form.b}} <br>
+          {{form.a}} <br>
+    {{form.im_on}} <br>
+		  {{form.castmr_on}} <br> <hr>
+
+
+
+</div>
+
+
+
+
+
+
+
+          <h1>رابط موقعك الالكتروني</h1><hr>
+
+		  {{form.url}} <br>
+
+
+
+
+
+
+
+          <button class="form-btn" type="submit">حفظ التعديلات </button>
+          <!-- <a href="index.html" class="form-btn" type="submit">Log in</a> -->
+          
+        </form>
+        
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <nav class="footer-nav">
+          <ul>
+           
+           
+           
+       
+            <li>
+              <a href="#">توفير الخدمات و الايدي العاملة  و الاعمال</a>
+            </li>
+
+            <li>
+              <a href="#">تسهيل عمليات التواصل التجاري و الاقتصادي</a>
+            </li>
+
+
+            <li>
+              <a href="#">هدفنا تحقيق نمو مستدام</a>
+            </li>
+
+
+
+
+            <li>
+              <a href="#">بسم الله الرحمن الرحيم</a>
+            </li>
+
+          </ul>
+        </nav>
+        <div class="copyright-notice">
+          موقع تواصل تجاري
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
+{% endblock content %}

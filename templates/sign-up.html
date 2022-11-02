@@ -1,0 +1,58 @@
+{% load static %}
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/fc1e235b2e.js"></script>
+  <link rel="stylesheet" href="{% static 'assets2/style.css' %}">
+  <title>تسجيل حساب جديد</title>
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div class="container">
+      <div class="phone-app-demo"></div>
+      <div class="form-data">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <div class="logo">
+          </div>
+          <!-- <input type="text" placeholder="Phone number, username, or email"> -->
+          <!-- <input type="password" placeholder="Password"> -->
+
+          <h3>اسم المستخدم</h3>
+          {{form.username}}
+          <h3>الايميل</h3>
+          {{form.email}}
+          <h3> كلمه المرور يجب ان تحتوي على حرف كبير واحرف صغيرة ورقم و رمز</h3>
+          {{form.password1}}
+          <h3>اعد كتابه كلمة المرور</h3>
+          {{form.password2}}
+          <button class="form-btn" type="submit">تسجيل حساب جديد</button>
+
+
+          <!-- <a href="index.html" class="form-btn" type="submit">Log in</a> -->
+          <span class="has-separator">او</span>
+
+        </form>
+        <div class="sign-up">
+          اذا كنت تمتلك حساب? <a href="{% url 'sign-in' %}">تسجيل دخول</a>
+        </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+
+</html>
